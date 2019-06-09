@@ -42,11 +42,11 @@ function getKeywords() {
     setSearch(q, false);
     var metas = document.getElementsByTagName("meta");
     //Debug
-    ///*
+    /*
     for (var i = 0; i < metas.length; i++) {
         console.log("Meta: " + i + ": Name: " + metas[i].getAttribute("name") + ". Content: " + metas[i].getAttribute("content"));
     }
-    //*/
+    */
 
     //goes through metas. If any meta contains "doi" the content of that meta is taken for the popup!
     for (var i = 0; i < metas.length; i++) {
@@ -61,7 +61,7 @@ function getKeywords() {
         {
             if(metas[i].getAttribute("content").search("/") == -1)
             {
-                console.log("Skipped what coudnt be a doi: " + metas[i].getAttribute("content"))
+                //console.log("Skipped what coudnt be a doi: " + metas[i].getAttribute("content"))
                 continue;
             }
             //console.log("DOI found!")
