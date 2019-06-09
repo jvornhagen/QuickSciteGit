@@ -9,3 +9,7 @@ In addition you have a field with which you can manually search on scite.ai.
 
 This extension is provided free and with no guarantees.
 Should you find any bugs, find any pages where the plugin should work but doesn't (please provide the website in this case), or just want to say hi, please contact me via the website above.... or on Twitter @VornhagenJB.
+
+Known Bugs/Missing Features:
+  -psycnet.apa.org not yet supported
+  -sometimes popup needs to be reopened if opened shortly after page load
