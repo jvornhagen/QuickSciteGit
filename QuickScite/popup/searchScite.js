@@ -13,7 +13,7 @@ var btnSearchTerm
 function sendToPage()
 {
     var input = document.getElementById("search").value;
-    var searchstring = "https://scite.ai/search?page=1&q=" + input;
+    var searchstring = "https://scite.ai/reports/" + input;
     browser.tabs.create({
         "url": searchstring
     });
@@ -51,7 +51,7 @@ function checkDoi(doi) {
 }
 
 function setButtons(searchTerm) {
-    console.log("setButtons called with: " + searchTerm);
+    //console.log("setButtons called with: " + searchTerm);
     btn = document.getElementById("SearchButton");
     bar = document.getElementById("Bar");
     bar.onclick = sendToPage;
@@ -63,7 +63,7 @@ function setButtons(searchTerm) {
     else
     {
         searchTerm = checkDoi(searchTerm);
-        btn.innerHTML = "Search for: " + searchTerm;
+        btn.innerHTML = "Search for: " + "\n" + searchTerm;
         btnSearchTerm = "https://scite.ai/reports/" + searchTerm
         btn.onclick = searchScite;
     }

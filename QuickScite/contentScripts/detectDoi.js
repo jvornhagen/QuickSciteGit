@@ -70,12 +70,45 @@ function getKeywords() {
         }
     }
     //Search for alternatives if no doi was found!
-    //tba
+
+    //console.log("Alternative called");
+
+    //in some cases metas are defined with property instead of name:
+
+    for (var i = 0; i < metas.length; i++) {
+        if (metas[i].getAttribute("property") === null) {
+            continue;
+        }
+        //Search for Doi
+        if (metas[i].getAttribute("property").includes('doi') == true ||
+            metas[i].getAttribute("property").includes('Identifier') == true ||
+            metas[i].getAttribute("property").includes('identifier') == true) {
+            if (metas[i].getAttribute("content").search("/") == -1) {
+                //console.log("Skipped what coudnt be a doi: " + metas[i].getAttribute("content"))
+                continue;
+            }
+            //console.log("DOI found!")
+            setSearch(metas[i].getAttribute('content'), true);
+            return metas[i].getAttribute('content');
+        }
+    }
+
+    //more tba
+        //current main probelm: psycnet.apa.org
 }
 
 
 //actual code
 browser.runtime.onMessage.addListener(listener);
+
+window.onload = function () {
+    var popup = document.getElementById("popup-content")
+    if (popup === null) {
+        getKeywords();
+        return;
+    }
+    else { return; }
+}
 
 //When a window is set active (and is not the popup) the doi is searched for.
 window.onfocus = function () {
