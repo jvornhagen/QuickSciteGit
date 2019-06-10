@@ -1,5 +1,5 @@
 # QuickSciteGit
-vs. 0.5
+vs: 0.6
 
 Author: Jan Vornhagen
 Contact: writing-on-par.netlify.com
