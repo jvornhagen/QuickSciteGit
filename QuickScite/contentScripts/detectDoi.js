@@ -72,22 +72,19 @@ function crawlMetas(m) {
         //Search for Title:
         if (tf == false)
         {
-            if (m[i].getAttribute("name").includes('title') ||
-                m[i].getAttribute("name").includes('Title') == true) {
+            if (m[i].getAttribute("name").includes('citation_title') == true ||
+                m[i].getAttribute("name").includes('dc.Title') == true) {
                 console.log("Title found!: " + m[i].getAttribute('content'))
                 title = m[i].getAttribute('content');
                 tf = true;
                 continue;
-        }
-
+            }
         }
         //Search for Year
         if (yf == false)
         {
-            if (m[i].getAttribute("name").includes('year') == true ||
-            m[i].getAttribute("name").includes('Year') == true ||
-            m[i].getAttribute("name").includes('date') == true ||
-            m[i].getAttribute("name").includes('Date') == true) {
+            if (m[i].getAttribute("name").includes("citation_publication_date") == true ||
+                m[i].getAttribute("name").includes("dc.Date")) {
                 console.log("Year found!: " + m[i].getAttribute('content'))
                 year = m[i].getAttribute('content');
                 yf = true;
@@ -98,8 +95,8 @@ function crawlMetas(m) {
         //Search for journal
         if (jf == false)
         {
-            if (m[i].getAttribute("name").includes('journal') == true ||
-                m[i].getAttribute("name").includes('Journal') == true) {
+            if (m[i].getAttribute("name").includes('dc.journal') == true ||
+                m[i].getAttribute("name").includes('citation_journal_title') == true) {
                 console.log("Journal found!: " + m[i].getAttribute('content'))
                 journal = m[i].getAttribute('content');
                 jf = true;
@@ -107,6 +104,36 @@ function crawlMetas(m) {
             }
         }
 
+        //search for authors
+        if (af == false)
+        {
+            if (m[i].getAttribute("name").includes('citation_author') == true ||
+                m[i].getAttribute("name").includes('dc.Author') == true ||
+                m[i].getAttribute("name").includes('citation_creator') == true ||
+                m[i].getAttribute("name").includes('dc.Creator') == true) {
+                if (m[i].getAttribute("name").endsWith('institution') == false)
+                {
+                    console.log("Author found!: " + m[i].getAttribute('content'))
+                    authors = m[i].getAttribute('content');
+                    af = true;
+                    continue;
+                }
+                else { continue; }
+            }
+        }
+        if (af == true) {
+            if (m[i].getAttribute("name").includes('citation_author') == true ||
+                m[i].getAttribute("name").includes('dc.Author') == true ||
+                m[i].getAttribute("name").includes('citation_creator') == true ||
+                m[i].getAttribute("name").includes('dc.Creator') == true) {
+                if (m[i].getAttribute("name").endsWith('institution') == false) {
+                    console.log("Author found!: " + m[i].getAttribute('content'))
+                    authors = authors.concat(", " + m[i].getAttribute('content'));
+                    continue;
+                }
+                else { continue; }
+            }
+        }
     }
     //Search for alternatives if no doi was found!
 
@@ -144,11 +171,11 @@ function getKeywords() {
     setSearch(q, false);
     var metas = document.getElementsByTagName("meta");
     //Debug
-    /*
+    ///*
     for (var i = 0; i < metas.length; i++) {
         console.log("Meta: " + i + ": Name: " + metas[i].getAttribute("name") + ". Content: " + metas[i].getAttribute("content"));
     }
-    */
+    //*/
 
     //goes through metas. If any meta contains "doi" the content of that meta is taken for the popup!
     crawlMetas(metas); 
