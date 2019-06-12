@@ -11,7 +11,8 @@
   },
 
 "permissions": [
-    "activeTab"
+    "activeTab",
+	"*://api.scite.ai/*"
   ],
 
 "browser_action":
