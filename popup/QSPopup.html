@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+	<meta name="buttonTerm" id="buttonTerm" content="No DOI found. Please use manual search." />
+	<meta  name="searchTerm" id="searchTerm" content="Here could be your advert!" />
+    <link rel="stylesheet" href="selectScite.css"/>
+	<script src="../contentScripts/detectDoi.js"></script>
+	<script src="searchScite.js"></script>
+  </head>
+
+
+<body>
+ 
+  <div id="popup-content" class="flex-container">
+	<div id="title" class="doiDiv title bodyClass"> 
+		System Shock 
+	</div>
+	
+	<div id="noDOI" class="title bodyClass">
+		No DOI found on this page!
+	</div>
+	
+	<div id="readout" class="doiDiv bodyClass">
+		<!--Scite Tally-->
+		<table class = "ST" id="sciteTally" style="width:20%">
+			<tr>
+			<th colspan="2">Scite Tally</th>
+			</tr>
+			
+			<tr class = "tally">
+				<td><img class="icon" src="../icons/supp.png" alt="Supporting:"></td>
+				<td id="supporting"> Looking it up... </td>
+			</tr>	
+			<tr class = "tally">
+				<td><img class="icon" src="../icons/ment.png" alt="Mentioning:"> </td>
+				<td id="mentioning"> Looking it up... </td>
+			</tr>
+			<tr class = "tally">
+				<td><img class="icon" src="../icons/cont.png" alt="Contradicting:"></td>
+				<td id="contradicting"> Looking it up... </td>
+			</tr>
+			<tr class = "tally">
+				<td><img class="icon" src="../icons/unclass.png" alt="Unclassified:"></td>
+				<td id="unclassified"> Looking it up... </td>
+			</tr>
+			<tr id ="errorTally" style="display:none" colspan="2">
+				<td>The Scite.Ai API could not be reached. <br> Please try visiting it via the button below.</td>
+			</tr>
+			
+		</table>
+		
+		<!--Paper Information-->
+		<table class = "AI" id="articleInfo" style="width:80%" >
+			<tr>
+				<th colspan="2">Article Information</th>
+			</tr>
+			<tr>
+				<td>Author(s): </td>
+				<td id="authors"> Warren Spector, Doug Church, Looking Glass Technologies </td>
+			</tr>
+			<tr>
+				<td>Publication Date: </td>
+				<td id="year"> 1994 </td>
+			</tr>
+			<tr>
+				<td>Journal: </td>
+				<td id="journal"> Origin Systems </td>
+			</tr>
+			<tr>
+				<td>Doi: </td>
+				<td id="aiDoi"> 10.1000/Placeholder </td>
+			</tr>
+		</table>
+	</div>
+  
+	<!--The button to take you to Scite-->
+    <div id="buttonContainer" class="doiDiv bodyClass">
+		<div class="search button" id="SearchButton">
+		<p>Please open the Popup again!</p>
+		</div>
+	</div>
+	
+	<div id="searchBarContainer" class="bodyClass">
+		<div class="Search" align="center">
+			<input type="text" method="put" id="search" placeholder="Search Scite.ai" value="" >
+			<input type="submit" id="Bar" value = "search">
+		</div>
+	</div>
+  
+  </div>
+
+  <div id="loading" class="flex-container">
+	<div class = "title bodyClass">
+	Loading... <br> Please open the Popup again.
+	</div>
+  </div>
+  
+
+</body>
+
+
+</html>

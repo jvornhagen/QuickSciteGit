@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "QuickScite.Ai",
+  "version": "0.1",
+  "author": "Jan B. Vornhagen",
+
+  "description": "Adds a button that searches the current website for a doi and looks it up on scite_",
+
+  "icons": {
+    "48": "sMA_48.png"
+  },
+
+"permissions": [
+    "activeTab",
+	"*://api.scite.ai/*"
+  ],
+
+"browser_action":
+    {
+		"browser_style": true,
+		"default_icon": "sMA_48.png",
+		"default_title": "QuickScite_",
+		"default_popup": "/popup/QSPopup.html"
+    },
+"content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./contentScripts/detectDoi.js"]
+    }
+  ]
+}

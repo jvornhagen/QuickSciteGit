@@ -1,0 +1,78 @@
+html, body {
+  ##width: 200px;
+  background-color: white;
+  border-color: #0098d8;
+  border-width: 10px;
+  font-family: "Calibri", sans-serif;
+}
+
+.button {
+  margin: 3% auto;
+  padding: 4px;
+  text-align: center;
+  font-size: 1.5em;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.button:hover {
+  background-color: #bbbbbb;
+}
+
+.button {
+  background-color: White;
+}
+
+.bar {
+  background-color: #aaaaaa;
+}
+
+.bar:hover {
+  background-color: #e8e8e8;
+}
+
+.th {
+	align: center;
+}
+
+.ST {
+	background-color: white;
+	font-weight: bold;
+	padding: 2px;
+	float: left;
+	border-right: 5px 0098d8;
+}
+.AI {
+	float: right;
+}
+
+.icon {
+	width:24px;
+	height:24px;
+}
+
+.title {
+	width: 100%;
+	text-align: center;
+	font-size: large;
+	font-weight: bold;
+	color: white;
+	transform: uppercase;
+	background-color: #0098d8;
+}
+
+#buttonContainer {
+	background-color: #0098d8;
+	font-color: white;
+}
+#searchBarContainer {
+	background-color: #0098d8;
+	font-color: white;
+}
+.flex-container {
+	display:flex;
+	flex-direction: column;
+}
+.flex-container>.bodyClass{
+	
+}
