@@ -1,5 +1,6 @@
 # QuickSciteGit
-vs. 0.5
+vs. 0.8_final version.
+This plugin is obsolete as Scite.Ai released their own plugin!
 
 Author: Jan Vornhagen
 Contact: writing-on-par.netlify.com
